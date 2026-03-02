@@ -6,6 +6,10 @@ public class ObjectMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
 
+    [SerializeField] private Transform _leftEnginePosition;
+
+    [SerializeField] private Transform _rightEnginePosition;
+
     [SerializeField, Range(0f, 10f)] private float _acceleration = 10f;
 
     [SerializeField, Range(0f, 100f)] private float _maxSpeed = 50f;
