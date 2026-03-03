@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnMoveForwardAndBack(InputAction.CallbackContext context)
+    /*public void OnMoveForwardAndBack(InputAction.CallbackContext context)
     {
         _forwardAndBackDirection = context.ReadValue<float>();
     }
@@ -82,10 +82,12 @@ public class PlayerController : MonoBehaviour
     public void OnMoveRightAndLeft(InputAction.CallbackContext context)
     {
         _rightAndLeftDirection = context.ReadValue<float>();
-    }
+    }*/
 
     private void ApplyEngineForces()
     {
+
+
         float leftThrust = CalculateThrust(_inputDirection.x, _inputDirection.y);
         float rightThrust = CalculateThrust(_inputDirection.x * -1, _inputDirection.y);
 

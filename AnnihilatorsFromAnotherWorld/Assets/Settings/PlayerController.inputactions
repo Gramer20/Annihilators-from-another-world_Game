@@ -37,7 +37,7 @@
                     "name": "NewMove",
                     "type": "Value",
                     "id": "b756a232-4d88-4c33-ae90-9ed57d2ef665",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -265,7 +265,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "MoveForward",
+                    "name": "MoveForwardAndBack",
                     "id": "09346aa0-d89d-42b6-abba-7c4d75d36f43",
                     "path": "1DAxis",
                     "interactions": "",
@@ -298,7 +298,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "MoveBack",
+                    "name": "MoveRightAndLeft",
                     "id": "166bf7fd-30e3-4baf-95cb-67c036d1cb6d",
                     "path": "1DAxis",
                     "interactions": "",
@@ -311,7 +311,7 @@
                 {
                     "name": "Positive",
                     "id": "6d6546ff-dafe-4a82-86ed-c8a6845a4590",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -322,7 +322,7 @@
                 {
                     "name": "Negative",
                     "id": "1ad98724-3d50-423e-803f-766bbf070df4",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
