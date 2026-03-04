@@ -11,35 +11,19 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Rigidbody _rigidBody;
 
-    [SerializeField] private float _thrustEngine = 6f;
+    [SerializeField, Range(0, 30)] private int _thrustEngine = 15;
 
-    [SerializeField] private float _rotaryThrust = 5f;
+    [SerializeField, Range(0, 10)] private int _rotaryThrust = 5;
 
-    [SerializeField] private float _maxSpeed = 10f;
+    [SerializeField, Range(0f, 5f)] private float _accelerationMultiplier = 2f;
 
     private Vector2 _direction;
 
-    private void Update()
-    {
-        ApplyingForce(_thrustEngine, _leftEnginePosition);
-        ApplyingForce(_thrustEngine, _rightEnginePosition);
-    }
-
     private void FixedUpdate()
     {
-        if (_direction != Vector2.zero)
-        {
-            if (_direction.x > 0)
-            {
-                ApplyingForce(CalculateRotaryForce(_rotaryThrust), _leftEnginePosition);
-            }
-            if (_direction.x < 0)
-            {
-                ApplyingForce(CalculateRotaryForce(_rotaryThrust * -1), _rightEnginePosition);
-            }
-            
-        }
+        MovingSpaceship();
     }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -52,13 +36,28 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private float CalculateRotaryForce(float thrust)
+    private void MovingSpaceship()
     {
-        float correctThrust = _direction.x * thrust;
+        ApplyingForce(_thrustEngine, _leftEnginePosition);
+        ApplyingForce(_thrustEngine, _rightEnginePosition);
 
-        //correctThrust = Mathf.Clamp(correctThrust, 0, _maxSpeed);
+        if (_direction != Vector2.zero)
+        {
+            if (_direction.x > 0)
+            {
+                ApplyingForce(_rotaryThrust, _leftEnginePosition);
+            }
+            if (_direction.x < 0)
+            {
+                ApplyingForce(_rotaryThrust, _rightEnginePosition);
+            }
 
-        return correctThrust;
+        }
+    }
+
+    private void AccelerationSpaceship()
+    {
+        ApplyingForce();
     }
 
     private void ApplyingForce(float thrust, Transform enginePosition)
@@ -67,5 +66,12 @@ public class PlayerMovement : MonoBehaviour
             transform.forward * thrust,
             enginePosition.position,
             ForceMode.Acceleration);
+    }
+    private void ApplyingForce(float thrust, Transform enginePosition, ForceMode forceMode)
+    {
+        _rigidBody.AddForceAtPosition(
+            transform.forward * thrust,
+            enginePosition.position,
+            forceMode);
     }
 }
