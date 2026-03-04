@@ -670,7 +670,7 @@ PrefabInstance:
       addedObject: {fileID: 1343062337}
     - targetCorrespondingSourceObject: {fileID: 6248324993735330510, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1343062335}
+      addedObject: {fileID: 1343062339}
   m_SourcePrefab: {fileID: 100100000, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
 --- !u!1 &1343062333 stripped
 GameObject:
@@ -682,25 +682,6 @@ Rigidbody:
   m_CorrespondingSourceObject: {fileID: 8799677499486131687, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
   m_PrefabInstance: {fileID: 1343062332}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1343062335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343062333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 037823c7d43ae43408b218a1b2cc4142, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _leftEnginePosition: {fileID: 1343062338}
-  _rightEnginePosition: {fileID: 1343062336}
-  _rigidbody: {fileID: 1343062334}
-  _mainThrust: 3
-  _attitudeThrust: 1
-  _maxSpeed: 20
-  _accelerationMultiplier: 10
 --- !u!4 &1343062336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4195239329424071460, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
@@ -733,8 +714,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1343062335}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+      - m_Target: {fileID: 1343062339}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -809,6 +790,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4857284863004122860, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
   m_PrefabInstance: {fileID: 1343062332}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1343062339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343062333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7817f883a20f76a4bab0e83de65d71a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rightEnginePosition: {fileID: 1343062336}
+  _leftEnginePosition: {fileID: 1343062338}
+  _rigidBody: {fileID: 1343062334}
+  _thrustEngine: 5
+  _rotaryThrust: 10
+  _maxSpeed: 10
 --- !u!1 &1486526764
 GameObject:
   m_ObjectHideFlags: 0
