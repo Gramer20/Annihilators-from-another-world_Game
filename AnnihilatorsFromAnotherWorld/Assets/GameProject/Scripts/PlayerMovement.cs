@@ -17,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField, Range(0f, 5f)] private float _accelerationMultiplier = 2f;
 
+    [SerializeField] private float _maxSpeed = 50f;
+
+    [SerializeField] private float _maxAccelerationSpeed = 100f;
+
     private bool IsAccelerationActived = false;
 
     private Vector2 _direction;
@@ -24,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovingSpaceship();
+        Debug.Log("Magnitude" + _rigidBody.velocity.magnitude);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -41,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovingSpaceship()
     {
-        if (!IsAccelerationActived)
+        if (!IsAccelerationActived && _rigidBody.velocity.magnitude < _maxSpeed)
         {
             ApplyingForce(_thrustEngine, _leftEnginePosition);
             ApplyingForce(_thrustEngine, _rightEnginePosition);
@@ -58,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
                 ApplyingForce(_rotaryThrust, _rightEnginePosition);
             }
 
-            if(_direction.y > 0)
+            if(_direction.y > 0 && _rigidBody.velocity.magnitude < _maxAccelerationSpeed)
             {
                 AccelerationSpaceship();
             }
@@ -71,8 +76,6 @@ public class PlayerMovement : MonoBehaviour
         {
             IsAccelerationActived = true;
 
-            ApplyingForce(_thrustEngine * _accelerationMultiplier, _rightEnginePosition, ForceMode.Impulse);
-            ApplyingForce(_thrustEngine * _accelerationMultiplier, _leftEnginePosition, ForceMode.Impulse);
             ApplyingForce(_thrustEngine * _accelerationMultiplier, _rightEnginePosition, ForceMode.Impulse);
             ApplyingForce(_thrustEngine * _accelerationMultiplier, _leftEnginePosition, ForceMode.Impulse);
         }

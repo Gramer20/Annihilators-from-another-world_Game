@@ -808,6 +808,8 @@ MonoBehaviour:
   _thrustEngine: 21
   _rotaryThrust: 7
   _accelerationMultiplier: 2
+  _maxSpeed: 50
+  _maxAccelerationSpeed: 100
 --- !u!1 &1486526764
 GameObject:
   m_ObjectHideFlags: 0
