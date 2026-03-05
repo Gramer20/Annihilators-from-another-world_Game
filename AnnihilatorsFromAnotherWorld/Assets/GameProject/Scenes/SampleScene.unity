@@ -805,8 +805,9 @@ MonoBehaviour:
   _rightEnginePosition: {fileID: 1343062336}
   _leftEnginePosition: {fileID: 1343062338}
   _rigidBody: {fileID: 1343062334}
-  _thrustEngine: 20
+  _thrustEngine: 21
   _rotaryThrust: 7
+  _accelerationMultiplier: 2
 --- !u!1 &1486526764
 GameObject:
   m_ObjectHideFlags: 0

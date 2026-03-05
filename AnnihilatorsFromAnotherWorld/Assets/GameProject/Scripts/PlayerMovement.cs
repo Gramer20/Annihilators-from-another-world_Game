@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField, Range(0f, 5f)] private float _accelerationMultiplier = 2f;
 
+    private bool IsAccelerationActived = false;
+
     private Vector2 _direction;
 
     private void FixedUpdate()
@@ -33,13 +35,17 @@ public class PlayerMovement : MonoBehaviour
         else if (context.canceled)
         {
             _direction = Vector2.zero;
+            IsAccelerationActived = false;
         }
     }
 
     private void MovingSpaceship()
     {
-        ApplyingForce(_thrustEngine, _leftEnginePosition);
-        ApplyingForce(_thrustEngine, _rightEnginePosition);
+        if (!IsAccelerationActived)
+        {
+            ApplyingForce(_thrustEngine, _leftEnginePosition);
+            ApplyingForce(_thrustEngine, _rightEnginePosition);
+        }
 
         if (_direction != Vector2.zero)
         {
@@ -47,17 +53,34 @@ public class PlayerMovement : MonoBehaviour
             {
                 ApplyingForce(_rotaryThrust, _leftEnginePosition);
             }
-            if (_direction.x < 0)
+            else if (_direction.x < 0)
             {
                 ApplyingForce(_rotaryThrust, _rightEnginePosition);
             }
 
+            if(_direction.y > 0)
+            {
+                AccelerationSpaceship();
+            }
         }
     }
 
     private void AccelerationSpaceship()
     {
-        ApplyingForce();
+        if (!IsAccelerationActived)
+        {
+            IsAccelerationActived = true;
+
+            ApplyingForce(_thrustEngine * _accelerationMultiplier, _rightEnginePosition, ForceMode.Impulse);
+            ApplyingForce(_thrustEngine * _accelerationMultiplier, _leftEnginePosition, ForceMode.Impulse);
+            ApplyingForce(_thrustEngine * _accelerationMultiplier, _rightEnginePosition, ForceMode.Impulse);
+            ApplyingForce(_thrustEngine * _accelerationMultiplier, _leftEnginePosition, ForceMode.Impulse);
+        }
+        else
+        {
+            ApplyingForce(_thrustEngine * _accelerationMultiplier, _rightEnginePosition);
+            ApplyingForce(_thrustEngine * _accelerationMultiplier, _leftEnginePosition);
+        }
     }
 
     private void ApplyingForce(float thrust, Transform enginePosition)
