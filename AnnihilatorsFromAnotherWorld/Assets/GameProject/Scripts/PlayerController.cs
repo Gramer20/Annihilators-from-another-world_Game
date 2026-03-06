@@ -30,10 +30,6 @@ public class PlayerController : MonoBehaviour
 
     public bool IsInteractive { get; set; }
 
-
-    private float _forwardAndBackDirection;
-    private float _rightAndLeftDirection;
-
     private void Awake()
     {
         IsInteractive = true;
@@ -74,20 +70,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*public void OnMoveForwardAndBack(InputAction.CallbackContext context)
-    {
-        _forwardAndBackDirection = context.ReadValue<float>();
-    }
-
-    public void OnMoveRightAndLeft(InputAction.CallbackContext context)
-    {
-        _rightAndLeftDirection = context.ReadValue<float>();
-    }*/
-
     private void ApplyEngineForces()
     {
-
-
         float leftThrust = CalculateThrust(_inputDirection.x, _inputDirection.y);
         float rightThrust = CalculateThrust(_inputDirection.x * -1, _inputDirection.y);
 
