@@ -16,19 +16,22 @@ public class ObjectMovement : MonoBehaviour
 
     [SerializeField, Range(0f, 100f)] private float _maxSpeed = 50f;
 
-    public void Move(Vector3 direction)
+    public float MaxSpeed => _maxSpeed;
+
+    public void ShipeMoveForward(float multiplier = 1f, ForceMode mode = ForceMode.Acceleration)
     {
-        Vector3 maximalVelocity = direction * _maxSpeed;
+        ApplyingForce(_thrustEngine * multiplier, _leftEnginePosition, mode);
+        ApplyingForce(_thrustEngine * multiplier, _rightEnginePosition, mode);
+    }
 
-        Vector3 currentVelocity = _rigidbody.velocity;
+    public void ShipRightRotation()
+    {
+        ApplyingForce(_rotaryThrust, _leftEnginePosition);
+    }
 
-        float deltaAcceleration = _acceleration * Time.fixedDeltaTime;
-
-        currentVelocity = Vector3.MoveTowards(currentVelocity, maximalVelocity, deltaAcceleration);
-
-        currentVelocity.y = 0f;
-
-        _rigidbody.velocity = currentVelocity;
+    public void ShipLeftRotation()
+    {
+        ApplyingForce(_rotaryThrust, _rightEnginePosition);
     }
 
     private void ApplyingForce(float thrust, Transform enginePosition)

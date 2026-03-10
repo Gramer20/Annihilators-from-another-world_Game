@@ -735,6 +735,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6248324993735330510, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1343062339}
+    - targetCorrespondingSourceObject: {fileID: 6248324993735330510, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1343062340}
   m_SourcePrefab: {fileID: 100100000, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
 --- !u!1 &1343062333 stripped
 GameObject:
@@ -866,14 +869,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7817f883a20f76a4bab0e83de65d71a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rightEnginePosition: {fileID: 1343062336}
-  _leftEnginePosition: {fileID: 1343062338}
+  _objectMovement: {fileID: 1343062340}
   _rigidBody: {fileID: 1343062334}
-  _thrustEngine: 21
-  _rotaryThrust: 7
   _accelerationMultiplier: 2
-  _maxSpeed: 50
   _maxAccelerationSpeed: 100
+--- !u!114 &1343062340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343062333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e68c1a8eb9eae4a994e8200970244f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 1343062334}
+  _leftEnginePosition: {fileID: 1343062338}
+  _rightEnginePosition: {fileID: 1343062336}
+  _thrustEngine: 15
+  _rotaryThrust: 5
+  _maxSpeed: 50
 --- !u!1 &1486526764
 GameObject:
   m_ObjectHideFlags: 0

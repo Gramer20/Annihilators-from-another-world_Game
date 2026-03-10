@@ -1,99 +1,74 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Transform _leftEnginePosition;
+    [SerializeField] private ObjectMovement _objectMovement;
 
-    [SerializeField] private Transform _rightEnginePosition;
+    [SerializeField] private Rigidbody _rigidBody;
 
-    [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField, Range(0f, 5f)] private float _accelerationMultiplier = 2f;
 
-    [SerializeField, Range(0, 3)] private int _mainThrust = 3;
+    [SerializeField] private float _maxAccelerationSpeed = 100f;
 
-    [SerializeField, Range(0, 3)] private int _attitudeThrust = 2;
+    private bool IsAccelerationActived = false;
 
-    [SerializeField, Range(0, 20)] private int _maxSpeed = 20;
-
-    [SerializeField, Range(0, 50)] private int _accelerationMultiplier = 10;
-
-    private float _minRotation = -30f;
-
-    private float _maxRotation = 30f;
-
-    private Vector2 _inputDirection;
-
-    public Vector3 Velocity => _rigidbody.velocity;
-
-    public bool IsInteractive { get; set; }
-
-    private void Awake()
-    {
-        IsInteractive = true;
-        _inputDirection = Vector2.zero;
-    }
-
-    private void Start()
-    {
-        _rigidbody.sleepThreshold = 0f;
-    }
-
-    private void Update()
-    {
-        Quaternion _correctRotation = _rigidbody.rotation;
-
-        _correctRotation.y = Mathf.Clamp(_correctRotation.y, _minRotation, _maxRotation);
-
-        _rigidbody.rotation = _correctRotation;
-    }
+    private Vector2 _direction;
 
     private void FixedUpdate()
     {
-        Debug.Log("Speed: " + _rigidbody.velocity);
-
-        if (IsInteractive == false) return;
-        ApplyEngineForces();
+        MovingSpaceship();
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            _inputDirection = context.ReadValue<Vector2>();
+            _direction = context.ReadValue<Vector2>();
         }
         else if (context.canceled)
         {
-            _inputDirection = Vector2.zero;
+            _direction = Vector2.zero;
+            IsAccelerationActived = false;
         }
     }
 
-    private void ApplyEngineForces()
+    private void MovingSpaceship()
     {
-        float leftThrust = CalculateThrust(_inputDirection.x, _inputDirection.y);
-        float rightThrust = CalculateThrust(_inputDirection.x * -1, _inputDirection.y);
+        if (!IsAccelerationActived && _rigidBody.velocity.magnitude < _objectMovement.MaxSpeed)
+        {
+            _objectMovement.ShipeMoveForward();
+        }
 
-        ApplyEngineForce(leftThrust, _leftEnginePosition.position);
-        ApplyEngineForce(rightThrust, _rightEnginePosition.position);
+        if (_direction != Vector2.zero)
+        {
+            if (_direction.x > 0)
+            {
+                _objectMovement.ShipRightRotation();
+            }
+            else if (_direction.x < 0)
+            {
+                _objectMovement.ShipLeftRotation();
+            }
+
+            if(_direction.y > 0 && _rigidBody.velocity.magnitude < _maxAccelerationSpeed)
+            {
+                AccelerationSpaceship();
+            }
+        }
     }
 
-    private float CalculateThrust(float horizontalInput, float verticalInput)
+    private void AccelerationSpaceship()
     {
-        float thrustValue = (_mainThrust * verticalInput + _attitudeThrust * horizontalInput) * _accelerationMultiplier;
+        if (!IsAccelerationActived)
+        {
+            IsAccelerationActived = true;
 
-        float actualThrust = Mathf.Clamp(thrustValue, 0f, _maxSpeed);
-
-        return actualThrust;
-    }
-
-    private void ApplyEngineForce(float thrustValue, Vector3 enginePosition)
-    {
-        _rigidbody.AddForceAtPosition(
-        transform.forward * thrustValue,
-        enginePosition,
-        ForceMode.Acceleration);
+            _objectMovement.ShipeMoveForward(_accelerationMultiplier, ForceMode.Impulse);
+        }
+        else
+        {
+            _objectMovement.ShipeMoveForward(_accelerationMultiplier);
+        }
     }
 }
-
