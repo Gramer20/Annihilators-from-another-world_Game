@@ -10,7 +10,9 @@ public class ObjectMovement : MonoBehaviour
 
     [SerializeField] private Transform _rightEnginePosition;
 
-    [SerializeField, Range(0f, 10f)] private float _acceleration = 10f;
+    [SerializeField, Range(0, 30)] private int _thrustEngine = 15;
+
+    [SerializeField, Range(0, 10)] private int _rotaryThrust = 5;
 
     [SerializeField, Range(0f, 100f)] private float _maxSpeed = 50f;
 
@@ -27,5 +29,20 @@ public class ObjectMovement : MonoBehaviour
         currentVelocity.y = 0f;
 
         _rigidbody.velocity = currentVelocity;
+    }
+
+    private void ApplyingForce(float thrust, Transform enginePosition)
+    {
+        _rigidbody.AddForceAtPosition(
+            transform.forward * thrust,
+            enginePosition.position,
+            ForceMode.Acceleration);
+    }
+    private void ApplyingForce(float thrust, Transform enginePosition, ForceMode forceMode)
+    {
+        _rigidbody.AddForceAtPosition(
+            transform.forward * thrust,
+            enginePosition.position,
+            forceMode);
     }
 }
