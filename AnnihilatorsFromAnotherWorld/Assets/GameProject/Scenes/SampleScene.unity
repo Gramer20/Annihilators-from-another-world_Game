@@ -122,6 +122,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &248539989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248539991}
+  - component: {fileID: 248539990}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!135 &248539990
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248539989}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 75
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &248539991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248539989}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 400, y: 0, z: 400}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &497154321
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +791,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6248324993735330510, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1343062340}
+    - targetCorrespondingSourceObject: {fileID: 6248324993735330510, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1343062341}
   m_SourcePrefab: {fileID: 100100000, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
 --- !u!1 &1343062333 stripped
 GameObject:
@@ -747,6 +803,11 @@ GameObject:
 --- !u!54 &1343062334 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 8799677499486131687, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
+  m_PrefabInstance: {fileID: 1343062332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1343062335 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3537826168175742075, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
   m_PrefabInstance: {fileID: 1343062332}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1343062336 stripped
@@ -800,7 +861,19 @@ MonoBehaviour:
     m_ActionId: 3a37709a-0a59-494f-92c7-d6da26bcd583
     m_ActionName: Player/Look[/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1343062341}
+        m_TargetAssemblyTypeName: PlayerShooting, Assembly-CSharp
+        m_MethodName: OnFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5a43839f-3cac-4456-a6d3-57614c1bb832
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -891,6 +964,22 @@ MonoBehaviour:
   _thrustEngine: 15
   _rotaryThrust: 5
   _maxSpeed: 50
+--- !u!114 &1343062341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343062333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55103e1f9d418a4409314757d52dc1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firePoints:
+  - {fileID: 1769375411}
+  - {fileID: 1343062335}
+  _bulletPrefab: {fileID: 3454350178298789473, guid: 3a37d892d8c2206488576cd41e8e5161, type: 3}
 --- !u!1 &1486526764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1356,6 +1445,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000002, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 1}
+--- !u!4 &1769375411 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2123663157164831763, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
+  m_PrefabInstance: {fileID: 1343062332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1966794601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,3 +1555,4 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1229844710}
   - {fileID: 1343062332}
+  - {fileID: 248539991}
