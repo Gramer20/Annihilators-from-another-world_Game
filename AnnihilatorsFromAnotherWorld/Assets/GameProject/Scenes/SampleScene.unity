@@ -1561,6 +1561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceShip (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8799677499486131687, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1628,6 +1632,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceShip (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8799677499486131687, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1683,7 +1691,7 @@ MonoBehaviour:
   _leftEnginePosition: {fileID: 1838298732}
   _rightEnginePosition: {fileID: 1838298731}
   _thrustEngine: 15
-  _rotaryThrust: 1
+  _rotaryThrust: 5
   _maxSpeed: 50
 --- !u!114 &1838298736
 MonoBehaviour:
@@ -1697,7 +1705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b0277445f428d4481bd1e4f74c7f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shipRigidbody: {fileID: 0}
+  _shipRigidbody: {fileID: 1838298733}
   _enemyMovement: {fileID: 1838298735}
   _cam: {fileID: 1158707471}
   _target: {fileID: 1608511393}
