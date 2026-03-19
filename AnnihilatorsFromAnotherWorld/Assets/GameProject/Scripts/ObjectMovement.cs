@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectMovement : MonoBehaviour
@@ -24,14 +25,27 @@ public class ObjectMovement : MonoBehaviour
         ApplyingForce(_thrustEngine * multiplier, _rightEnginePosition, mode);
     }
 
-    public void ShipRightRotation()
+
+    /// <summary>
+    /// «адаЄт т€гу дл€ поворота вправо
+    /// </summary>
+    /// <param name="multiplier">ћножитель, предназначенный дл€ уменьшени€ т€ги при повороте. «начение задаЄтс€ от 0f до 1f</param>
+    public void ShipRightRotation(float multiplier = 1f)
     {
-        ApplyingForce(_rotaryThrust, _leftEnginePosition);
+        Mathf.Clamp(multiplier, 0.1f, 1f);
+
+        ApplyingForce(_rotaryThrust * multiplier, _leftEnginePosition);
     }
 
-    public void ShipLeftRotation()
+    /// <summary>
+    /// «адаЄт т€гу дл€ поворота влево
+    /// </summary>
+    /// <param name="multiplier">ћножитель, предназначенный дл€ уменьшени€ т€ги при повороте. «начение задаЄтс€ от 0f до 1f</param>
+    public void ShipLeftRotation(float multiplier = 1f)
     {
-        ApplyingForce(_rotaryThrust, _rightEnginePosition);
+        Mathf.Clamp(multiplier, 0.1f, 1f);
+
+        ApplyingForce(_rotaryThrust * multiplier, _rightEnginePosition);
     }
 
     private void ApplyingForce(float thrust, Transform enginePosition)

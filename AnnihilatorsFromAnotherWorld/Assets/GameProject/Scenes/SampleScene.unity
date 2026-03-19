@@ -1519,7 +1519,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2886402350440335395, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -141.3
+      value: -66
       objectReference: {fileID: 0}
     - target: {fileID: 2886402350440335395, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1527,7 +1527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2886402350440335395, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 71.8
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 2886402350440335395, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1602,7 +1602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2886402350440335395, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9998001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2886402350440335395, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1610,7 +1610,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2886402350440335395, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.019997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2886402350440335395, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1691,7 +1691,7 @@ MonoBehaviour:
   _leftEnginePosition: {fileID: 1838298732}
   _rightEnginePosition: {fileID: 1838298731}
   _thrustEngine: 15
-  _rotaryThrust: 5
+  _rotaryThrust: 4
   _maxSpeed: 50
 --- !u!114 &1838298736
 MonoBehaviour:

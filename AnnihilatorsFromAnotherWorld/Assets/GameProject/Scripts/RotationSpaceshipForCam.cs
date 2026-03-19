@@ -17,28 +17,35 @@ public class RotationSpaceshipForCam : MonoBehaviour
     void FixedUpdate()
     {
         MovingEnemySpaceship();
+
+        Debug.Log(_shipRigidbody.angularVelocity);
     }
 
     private void MovingEnemySpaceship()
     {
-        if (_cam.localRotation.y < 0)
+        if (_cam.localRotation.y < -0.03 || _cam.localRotation.y > 0.03)
         {
-            _enemyMovement.ShipLeftRotation();
+            if (_cam.localRotation.y < 0 || _shipRigidbody.angularVelocity.y < 0)
+            {
+                _enemyMovement.ShipLeftRotation();
+            }
+
+            if (_cam.localRotation.y > 0)
+            {
+                _enemyMovement.ShipRightRotation();
+            }
+        }
+        else
+        {
+            _shipRigidbody.angularVelocity = Vector3.zero;
         }
 
-        if (_cam.localRotation.y > 0)
-        {
-            _enemyMovement.ShipRightRotation();
-        }
-
-        if (Vector3.Distance(_target.position, transform.position) > 10)
+        if (Vector3.Distance(transform.position, _target.position) > 35)
         {
             _enemyMovement.ShipeMoveForward();
-
-            //_shipRigidbody.angularVelocity = Vector3.zero;
         }
-        else 
-        { 
+        else
+        {
             _shipRigidbody.velocity = Vector3.zero;
         }
     }
