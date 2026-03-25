@@ -10,7 +10,7 @@ public class CameraOrbit : MonoBehaviour
 
     [SerializeField] private Transform _playerTransform;
     [SerializeField, Range(1f, 100f)] private float _radius = 50f;
-    [SerializeField, Range(1f, 360f)] private float _turnSpeed = 50f;
+    [SerializeField, Range(1f, 360f)] private float _turnSpeed = 30f;
 
     private Vector2 _inputDeltaPointMove;
     private Vector2 _orbitAngles;
@@ -34,12 +34,15 @@ public class CameraOrbit : MonoBehaviour
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        Vector2 input = context.ReadValue<Vector2>();
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 input = context.ReadValue<Vector2>();
 
-        float deltaX = input.x;
+            float deltaX = input.x;
 
-        _orbitAngles.y += deltaX * _turnSpeed * Time.unscaledDeltaTime;
+            _orbitAngles.y += deltaX * _turnSpeed * Time.unscaledDeltaTime;
 
-        _orbitAngles.y = Mathf.Repeat(_orbitAngles.y, 360f);
+            _orbitAngles.y = Mathf.Repeat(_orbitAngles.y, 360f);
+        }
     }
 }

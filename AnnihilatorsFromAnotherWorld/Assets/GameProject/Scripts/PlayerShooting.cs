@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -6,14 +7,16 @@ public class PlayerShooting : MonoBehaviour
 
     [SerializeField] private GameObject _bulletPrefab;
 
-    public void OnFire()
+    public void OnFire(InputAction.CallbackContext context)
     {
-        foreach (Transform firePoint in _firePoints)
+        if (context.performed)
         {
-            Vector3 spawnPosition = firePoint.position;
-            Quaternion bulletDirection = firePoint.rotation;
-            Instantiate(_bulletPrefab, spawnPosition, bulletDirection);
+            foreach (Transform firePoint in _firePoints)
+            {
+                Vector3 spawnPosition = firePoint.position;
+                Quaternion bulletDirection = firePoint.rotation;
+                Instantiate(_bulletPrefab, spawnPosition, bulletDirection);
+            }
         }
-
     }
 }
