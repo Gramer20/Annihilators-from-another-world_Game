@@ -42,11 +42,13 @@ public class ObjectDurability : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damageAmount)
     {
         if (IsAlive)
         {
-            _currentDurability -= damage;
+            float damage = Mathf.Abs(damageAmount) * -1;
+
+            ChangeState(damage);
         }
     }
 
