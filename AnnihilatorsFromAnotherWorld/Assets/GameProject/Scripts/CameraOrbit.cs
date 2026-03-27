@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CameraOrbit : MonoBehaviour
 {
-    private const float _startVerticalAngle = 45f;
+    private const float _startVerticalAngle = 35f;
     private const float _startHorizontalAngle = 0f;
 
     [SerializeField] private Transform _playerTransform;

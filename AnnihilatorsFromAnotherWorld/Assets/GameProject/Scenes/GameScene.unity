@@ -1472,10 +1472,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 390348521826777699, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -1825,6 +1821,7 @@ MonoBehaviour:
   - {fileID: 1769375411}
   - {fileID: 1343062335}
   _bulletPrefab: {fileID: 3454350178298789473, guid: 3a37d892d8c2206488576cd41e8e5161, type: 3}
+  _shootingText: {fileID: 1522322287}
 --- !u!4 &1343062342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2886402350440335395, guid: 3746ae2ae5ccd7b48a254874ec18d587, type: 3}
@@ -2337,6 +2334,7 @@ GameObject:
   - component: {fileID: 1522322284}
   - component: {fileID: 1522322286}
   - component: {fileID: 1522322285}
+  - component: {fileID: 1522322287}
   m_Layer: 5
   m_Name: ShootsText
   m_TagString: Untagged
@@ -2460,6 +2458,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1522322283}
   m_CullTransparentMesh: 1
+--- !u!114 &1522322287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522322283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d192337166b4fc84bba684895eb9b665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootingText: {fileID: 1522322285}
 --- !u!1 &1537780431
 GameObject:
   m_ObjectHideFlags: 0
