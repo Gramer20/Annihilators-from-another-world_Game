@@ -16,9 +16,15 @@ public class PlayerController : MonoBehaviour
     private bool IsAccelerationActived = false;
     private Vector2 _direction;
 
+    private void Update()
+    {
+        
+    }
+
     private void FixedUpdate()
     {
         MovingSpaceship();
+        RotationSpaceship();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -38,18 +44,23 @@ public class PlayerController : MonoBehaviour
     {
         if (!IsAccelerationActived && _rigidBody.velocity.magnitude < _objectMovement.MaxSpeed)
         {
-            //_objectMovement.ShipeMoveForward();
+            _objectMovement.ShipeMoveForward();
         }
 
         if (_direction != Vector2.zero)
         {
-            //_objectMovement.ShipRightRotation();
-            _transform.localRotation = _objectMovement.ShipRotation(_direction.y); ;
-
-            if(_direction.y > 0 && _rigidBody.velocity.magnitude < _maxAccelerationSpeed)
+            if (_direction.y > 0 && _rigidBody.velocity.magnitude < _maxAccelerationSpeed)
             {
                 AccelerationSpaceship();
             }
+        }
+    }
+
+    private void RotationSpaceship()
+    {
+        if (_direction != Vector2.zero)
+        {
+            _transform.localRotation = _objectMovement.ShipRotation(_direction.x);
         }
     }
 

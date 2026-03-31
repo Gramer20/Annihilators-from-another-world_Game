@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 5386304290895077400}
-  _bulletVelocity: 150
+  _bulletVelocity: 250
 --- !u!114 &5105550022445955315
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class ObjectMovement : MonoBehaviour
 
     [SerializeField, Range(0, 30)] private int _thrustEngine = 15;
 
-    [SerializeField, Range(0, 30)] private int _rotationSpeed = 10;
+    [SerializeField, Range(0, 300)] private int _rotationSpeed = 100;
 
     [SerializeField, Range(0, 100)] private int _maxSpeed = 50;
 
@@ -24,9 +24,9 @@ public class ObjectMovement : MonoBehaviour
 
     public Quaternion ShipRotation(float direction)
     {
-        _yRotation = direction * _rotationSpeed * Time.deltaTime;
+        _yRotation += direction * _rotationSpeed * Time.deltaTime;
 
-        _yRotation = Mathf.Clamp(_yRotation, -90f, 90f);
+        //_yRotation = Mathf.Clamp(_yRotation, -90f, 90f);
 
         Quaternion rotate = Quaternion.Euler(0f, _yRotation, 0f);
 
