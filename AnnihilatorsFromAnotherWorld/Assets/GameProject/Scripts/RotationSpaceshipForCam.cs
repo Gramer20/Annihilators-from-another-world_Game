@@ -20,23 +20,6 @@ public class RotationSpaceshipForCam : MonoBehaviour
     {
         transform.rotation = Quaternion.Slerp(transform.rotation, _cam.rotation, 2 * Time.deltaTime);
 
-        /*if (_cam.localRotation.y < -0.03 || _cam.localRotation.y > 0.03)
-        {   
-            if (_cam.localRotation.y < 0)
-            {
-                _enemyMovement.ShipLeftRotation();
-            }
-
-            if (_cam.localRotation.y > 0)
-            {
-                _enemyMovement.ShipRightRotation();
-            }  
-        }
-        else
-        {
-            _shipRigidbody.angularVelocity = Vector3.zero;
-        }*/
-
         if (Vector3.Distance(transform.position, _target.position) > 20)
         {
             _enemyMovement.ShipeMoveForward();

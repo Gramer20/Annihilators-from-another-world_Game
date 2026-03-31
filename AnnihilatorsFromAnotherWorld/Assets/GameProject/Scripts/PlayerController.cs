@@ -7,12 +7,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody _rigidBody;
 
+    [SerializeField] private Transform _transform;
+
     [SerializeField, Range(0f, 5f)] private float _accelerationMultiplier = 2f;
 
     [SerializeField] private float _maxAccelerationSpeed = 100f;
 
     private bool IsAccelerationActived = false;
-
     private Vector2 _direction;
 
     private void FixedUpdate()
@@ -37,19 +38,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!IsAccelerationActived && _rigidBody.velocity.magnitude < _objectMovement.MaxSpeed)
         {
-            _objectMovement.ShipeMoveForward();
+            //_objectMovement.ShipeMoveForward();
         }
 
         if (_direction != Vector2.zero)
         {
-            if (_direction.x > 0)
-            {
-                _objectMovement.ShipRightRotation();
-            }
-            else if (_direction.x < 0)
-            {
-                _objectMovement.ShipLeftRotation();
-            }
+            //_objectMovement.ShipRightRotation();
+            _transform.localRotation = _objectMovement.ShipRotation(_direction.y); ;
 
             if(_direction.y > 0 && _rigidBody.velocity.magnitude < _maxAccelerationSpeed)
             {
