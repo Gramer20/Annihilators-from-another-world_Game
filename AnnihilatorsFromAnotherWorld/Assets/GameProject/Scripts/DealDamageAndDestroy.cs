@@ -3,16 +3,16 @@ using UnityEngine;
 public class DealDamageAndDestroy : MonoBehaviour
 {
     [SerializeField] private float _bulletDamage = 10f;
-    private int _playerLayer;
+    private int _enemyLayer;
 
-    private void Awake()
+    private void Start()
     {
-        _playerLayer = LayerMask.NameToLayer("Player");
+        _enemyLayer = LayerMask.NameToLayer("Enemy");
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent<ObjectDurability>(out var durability) && collision.gameObject.layer != _playerLayer)
+        if (collision.gameObject.TryGetComponent<ObjectDurability>(out var durability) && collision.gameObject.layer == _enemyLayer)
         {
             durability.TakeDamage(_bulletDamage);
         }
