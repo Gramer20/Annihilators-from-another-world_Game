@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,15 +12,24 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private int _maxShots = 15;
     private int _shootingCount;
 
+    private float _shootingInterval = 0.25f;
+    private float _shootingTime;
+
     private void Awake()
     {
         _shootingCount = _maxShots;
+        _shootingTime = Time.time;
+
         DisplayShots(_shootingCount);
     }
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (context.performed && _shootingCount > 0)
+        Debug.Log($"{_shootingTime + _shootingInterval} => {Time.time}");
+
+        float currentInterval = _shootingTime + _shootingInterval;
+
+        if (context.performed && _shootingCount > 0 && _shootingTime + _shootingInterval < Time.time)
         {
             foreach (Transform firePoint in _firePoints)
             {
@@ -27,6 +37,7 @@ public class PlayerShooting : MonoBehaviour
                 Quaternion bulletDirection = firePoint.rotation;
                 Instantiate(_bulletPrefab, spawnPosition, bulletDirection);
             }
+            _shootingTime = Time.time;
 
             RemoveShot();
         }

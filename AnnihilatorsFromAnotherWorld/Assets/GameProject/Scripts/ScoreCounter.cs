@@ -14,7 +14,7 @@ public class ScoreCounter : MonoBehaviour
         _counterView.Display(score);
     }
 
-    public void AddPoint(int point)
+    public void AddScorePoint(int point)
     {
         score += point;
         _counterView.Display(score);

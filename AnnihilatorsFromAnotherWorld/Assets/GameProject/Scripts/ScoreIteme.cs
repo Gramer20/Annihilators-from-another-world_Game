@@ -8,9 +8,9 @@ public class ScoreIteme : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<ScoreCounter>(out var scoreCounter))
+        if (other.gameObject.TryGetComponent<CollectSorceItem>(out var collectItem))
         {
-            scoreCounter.AddPoint(_score);
+            collectItem.AddPoint(_score);
 
             Destroy(gameObject);
         }

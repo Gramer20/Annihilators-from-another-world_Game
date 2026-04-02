@@ -34,7 +34,7 @@ public class CameraOrbit : MonoBehaviour
 
     public void OnLook(InputAction.CallbackContext context)
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             Vector2 input = context.ReadValue<Vector2>();
 
