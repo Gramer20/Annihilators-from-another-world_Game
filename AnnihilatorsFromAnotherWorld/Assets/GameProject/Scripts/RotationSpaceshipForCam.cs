@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class RotationSpaceshipForCam : MonoBehaviour
@@ -18,8 +15,6 @@ public class RotationSpaceshipForCam : MonoBehaviour
     void FixedUpdate()
     {
         MovingEnemySpaceship();
-
-        Debug.Log(_shipRigidbody.angularVelocity);
     }
 
     private void MovingEnemySpaceship()

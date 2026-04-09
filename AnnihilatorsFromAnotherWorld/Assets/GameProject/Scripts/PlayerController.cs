@@ -16,11 +16,6 @@ public class PlayerController : MonoBehaviour
     private bool IsAccelerationActived = false;
     private Vector2 _direction;
 
-    private void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         MovingSpaceship();

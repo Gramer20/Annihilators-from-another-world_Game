@@ -33,7 +33,6 @@ public class DealDamageAndDestroy : MonoBehaviour
             }
         }
 
-
-            Destroy(gameObject);
+        Destroy(gameObject);
     }
 }
