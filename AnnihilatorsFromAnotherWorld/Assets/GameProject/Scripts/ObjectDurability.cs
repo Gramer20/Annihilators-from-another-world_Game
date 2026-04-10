@@ -7,9 +7,9 @@ public class ObjectDurability : MonoBehaviour
 
     [SerializeField] private UnityEvent _onDestroy;
     
-    [SerializeField] private float _maxDurability = 100f;
+    [SerializeField] private float _maxDurability = 20f;
 
-    private float _currentDurability = 100f;
+    private float _currentDurability;
 
     public float MaxDurability => _maxDurability;
     public float CurrentDurability => _currentDurability;

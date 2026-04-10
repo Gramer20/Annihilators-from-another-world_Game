@@ -15,7 +15,6 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         StartTimer();
-        Debug.Log(string.Format("I am {0}!", "grut"));
     }
 
     void FixedUpdate()
@@ -31,7 +30,6 @@ public class Timer : MonoBehaviour
                 _minute++;
                 _second = 0f;
             }
-
 
             _timerView.text = string.Format("{0:00}" + ":" + "{1:00}", _minute, _second);
         }

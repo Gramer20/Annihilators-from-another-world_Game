@@ -13,24 +13,15 @@ public class DealDamageAndDestroy : MonoBehaviour
         _enemyLayer = LayerMask.NameToLayer("Enemy");
         _playerLayer = LayerMask.NameToLayer("Player");
 
-        _gameObjectLayer = gameObject.layer;
+        _gameObjectLayer = transform.gameObject.layer;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(_gameObjectLayer == _playerLayer)
+
+        if (collision.gameObject.layer == _enemyLayer && collision.gameObject.TryGetComponent<ObjectDurability>(out var durability))
         {
-            if (collision.gameObject.TryGetComponent<ObjectDurability>(out var durability) && collision.gameObject.layer == _enemyLayer)
-            {
-                durability.TakeDamage(_bulletDamage);
-            }
-        }
-        else if (_gameObjectLayer == _enemyLayer)
-        {
-            if (collision.gameObject.TryGetComponent<ObjectDurability>(out var durability) && collision.gameObject.layer == _playerLayer)
-            {
-                durability.TakeDamage(_bulletDamage);
-            }
+            durability.TakeDamage(_bulletDamage);
         }
 
         Destroy(gameObject);
