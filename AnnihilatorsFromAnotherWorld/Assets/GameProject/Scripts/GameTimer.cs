@@ -1,16 +1,16 @@
-using TMPro;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+public class GameTimer : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _timerView;
+    [SerializeField] private TimerView _timerView;
 
     private float _minute = 0f;
     private float _second = 0f;
-    private bool IsTimerRunning = false;
+    private bool _isTimerRunning = false;
 
     public float Min => _minute;
     public float Sec => _second;
+    public bool IsTimerRunning => _isTimerRunning;
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class Timer : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (IsTimerRunning)
+        if (_isTimerRunning)
         {
             _second += Time.deltaTime;
 
@@ -31,18 +31,18 @@ public class Timer : MonoBehaviour
                 _second = 0f;
             }
 
-            _timerView.text = string.Format("{0:00}" + ":" + "{1:00}", _minute, _second);
+            _timerView.Display(_minute, _second);
         }
     }
 
     public void StartTimer()
     {
-        IsTimerRunning = true;
+        _isTimerRunning = true;
     }
 
     public void StopTimer()
     {
-        IsTimerRunning = false;
+        _isTimerRunning = false;
     }
 
     public void RestartTimer()

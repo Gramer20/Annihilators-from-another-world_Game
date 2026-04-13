@@ -1520,7 +1520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509b011168add574d9a1be9fbca6f1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timerView: {fileID: 1380352363}
+  _timerView: {fileID: 1380352365}
 --- !u!4 &857584308
 Transform:
   m_ObjectHideFlags: 0
@@ -2802,6 +2802,7 @@ GameObject:
   - component: {fileID: 1380352362}
   - component: {fileID: 1380352364}
   - component: {fileID: 1380352363}
+  - component: {fileID: 1380352365}
   m_Layer: 5
   m_Name: TimeText
   m_TagString: Untagged
@@ -2925,6 +2926,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380352361}
   m_CullTransparentMesh: 1
+--- !u!114 &1380352365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1380352361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954694cf9de5f934cac4962a80f5cd4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timerView: {fileID: 1380352363}
 --- !u!1 &1421377307
 GameObject:
   m_ObjectHideFlags: 0
@@ -4405,7 +4419,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &1822709896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4448,7 +4462,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _maxDurability: 20
+  _maxDurability: 100
 --- !u!114 &1822709897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4461,10 +4475,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adb71ad47860b44c8000f5d97789bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timer: {fileID: 857584307}
   _firePoints:
   - {fileID: 492552578}
   - {fileID: 836845405}
   _bulletPrefab: {fileID: 3454350178298789473, guid: 3a37d892d8c2206488576cd41e8e5161, type: 3}
+  _layerForDealDamage:
+    serializedVersion: 2
+    m_Bits: 64
   _shootingInterval: 0.25
 --- !u!65 &1822709900
 BoxCollider:
@@ -4485,7 +4503,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.26867926, z: 1.5}
+  m_Size: {x: 1, y: 0.4, z: 1.5}
   m_Center: {x: 0.00000011920929, y: 0.043024447, z: -0.39}
 --- !u!65 &1822709901
 BoxCollider:
@@ -4506,7 +4524,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.58, y: 0.26867926, z: 2.1937954}
+  m_Size: {x: 0.58, y: 0.4, z: 2.1937954}
   m_Center: {x: -0.79, y: 0.043024447, z: -0.043}
 --- !u!65 &1822709902
 BoxCollider:
@@ -4527,7 +4545,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.58, y: 0.26867926, z: 2.1937954}
+  m_Size: {x: 0.58, y: 0.4, z: 2.1937954}
   m_Center: {x: 0.79, y: 0.043024447, z: -0.043}
 --- !u!114 &1822709903
 MonoBehaviour:
@@ -5364,7 +5382,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &1948936643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5407,10 +5425,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adb71ad47860b44c8000f5d97789bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timer: {fileID: 857584307}
   _firePoints:
   - {fileID: 1571607960}
   - {fileID: 51650604}
   _bulletPrefab: {fileID: 3454350178298789473, guid: 3a37d892d8c2206488576cd41e8e5161, type: 3}
+  _layerForDealDamage:
+    serializedVersion: 2
+    m_Bits: 128
   _shootingInterval: 0.25
 --- !u!114 &1948936650
 MonoBehaviour:

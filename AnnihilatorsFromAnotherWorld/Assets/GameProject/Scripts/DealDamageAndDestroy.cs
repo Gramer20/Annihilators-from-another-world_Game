@@ -4,26 +4,22 @@ public class DealDamageAndDestroy : MonoBehaviour
 {
     [SerializeField] private float _bulletDamage = 10f;
 
-    private int _enemyLayer;
-    private int _playerLayer;
-    private int _gameObjectLayer;
+    private LayerMask _layerForDealDamage;
 
-    private void Awake()
-    {
-        _enemyLayer = LayerMask.NameToLayer("Enemy");
-        _playerLayer = LayerMask.NameToLayer("Player");
-
-        _gameObjectLayer = transform.gameObject.layer;
-    }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision col)
     {
 
-        if (collision.gameObject.layer == _enemyLayer && collision.gameObject.TryGetComponent<ObjectDurability>(out var durability))
+        if (col.gameObject.layer == _layerForDealDamage && col.gameObject.TryGetComponent<ObjectDurability>(out var durability))
         {
             durability.TakeDamage(_bulletDamage);
         }
 
         Destroy(gameObject);
+    }
+
+    public void SetLayerForDealDamage(LayerMask layer)
+    {
+        //Debug.Log(layer.value);
+        _layerForDealDamage = layer;
     }
 }

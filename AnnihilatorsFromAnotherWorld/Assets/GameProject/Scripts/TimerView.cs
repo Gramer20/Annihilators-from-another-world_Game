@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class TimerView : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _timerVeiw;
+    [SerializeField] private TMP_Text _timerView;
 
-    public void Display()
+    public void Display(float minute, float second)
     {
-        _timerVeiw.text = "{0:00}";
+        _timerView.text = string.Format("{0:00}" + ":" + "{1:00}", minute, second);
     }
 }
