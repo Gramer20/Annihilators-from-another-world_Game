@@ -6,20 +6,27 @@ public class DealDamageAndDestroy : MonoBehaviour
 
     private LayerMask _layerForDealDamage;
 
+    public void SetLayerForDealDamage(LayerMask layer)
+    {
+        _layerForDealDamage = layer;
+    }
+
     private void OnCollisionEnter(Collision col)
     {
 
-        if (col.gameObject.layer == _layerForDealDamage && col.gameObject.TryGetComponent<ObjectDurability>(out var durability))
+        LayerMask layerMask = 1 << col.gameObject.layer;
+
+        if (col.gameObject.TryGetComponent<ObjectDurability>(out var durability))
         {
+            if(layerMask == _layerForDealDamage)
+            {
+                Debug.Log("Так точно");
+            }
             durability.TakeDamage(_bulletDamage);
+
+            Debug.Log(col.gameObject.layer + " <--> " + _layerForDealDamage.value + " ^-^");
         }
 
         Destroy(gameObject);
-    }
-
-    public void SetLayerForDealDamage(LayerMask layer)
-    {
-        //Debug.Log(layer.value);
-        _layerForDealDamage = layer;
     }
 }

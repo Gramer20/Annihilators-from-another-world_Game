@@ -17,7 +17,6 @@ public class Shooting : MonoBehaviour
         if (_bulletPrefab.TryGetComponent<DealDamageAndDestroy>(out var component))
         {
             component.SetLayerForDealDamage(_layerForDealDamage);
-            Debug.Log(_layerForDealDamage.value);
         }
     }
 
