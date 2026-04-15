@@ -13,9 +13,9 @@ TagManager:
   - UI
   - Player
   - Enemy
+  - PlayerProjectaile
+  - EnemyProjectaile
   - Portal
-  - Projectaile
-  - 
   - 
   - 
   - 

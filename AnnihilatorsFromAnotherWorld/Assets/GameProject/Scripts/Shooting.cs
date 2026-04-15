@@ -5,7 +5,6 @@ public class Shooting : MonoBehaviour
     [SerializeField] private GameTimer _timer;
     [SerializeField] private Transform[] _firePoints;
     [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private LayerMask _layerForDealDamage = 1 << 6;
 
     [SerializeField, Range(0f, 1f)] private float _shootingInterval = 0.25f;
     private float _shootingTime;
@@ -13,11 +12,6 @@ public class Shooting : MonoBehaviour
     private void Start()
     {
         _shootingTime = _timer.Sec;
-
-        if (_bulletPrefab.TryGetComponent<DealDamageAndDestroy>(out var component))
-        {
-            component.SetLayerForDealDamage(_layerForDealDamage);
-        }
     }
 
     public void ShootBullet()

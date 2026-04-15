@@ -4479,10 +4479,7 @@ MonoBehaviour:
   _firePoints:
   - {fileID: 492552578}
   - {fileID: 836845405}
-  _bulletPrefab: {fileID: 3454350178298789473, guid: 3a37d892d8c2206488576cd41e8e5161, type: 3}
-  _layerForDealDamage:
-    serializedVersion: 2
-    m_Bits: 64
+  _bulletPrefab: {fileID: 3454350178298789473, guid: d0053a67b1da5f640a9db91638b7752a, type: 3}
   _shootingInterval: 0.25
 --- !u!65 &1822709900
 BoxCollider:
@@ -5430,9 +5427,6 @@ MonoBehaviour:
   - {fileID: 1571607960}
   - {fileID: 51650604}
   _bulletPrefab: {fileID: 3454350178298789473, guid: 3a37d892d8c2206488576cd41e8e5161, type: 3}
-  _layerForDealDamage:
-    serializedVersion: 2
-    m_Bits: 128
   _shootingInterval: 0.25
 --- !u!114 &1948936650
 MonoBehaviour:
