@@ -6,8 +6,9 @@ public class SpawnSelectItem : MonoBehaviour
 {
     [SerializeField] private GameObject _spawnArea;
     [SerializeField] private GameObject _selectItemPrefab;
+    [SerializeField] private int _maxSelectItemCount = 500;
 
-    private float _spawnInterval = 0.1f;
+    private float _spawnInterval = 0.005f;
     private int _spawnCount = 0;
 
     private void Start()
@@ -19,9 +20,11 @@ public class SpawnSelectItem : MonoBehaviour
     {
         WaitForSeconds waitForSeconds = new WaitForSeconds(_spawnInterval);
 
-        while (_spawnCount <= 20)
+        while (_spawnCount <= _maxSelectItemCount)
         {
-            Instantiate(_selectItemPrefab, RandomSpawnPosition(), _spawnArea.transform.rotation);
+            GameObject newSelectItem = Instantiate(_selectItemPrefab, RandomSpawnPosition(), _selectItemPrefab.transform.rotation);
+            newSelectItem.transform.parent = _spawnArea.transform;
+
             _spawnCount++;
 
             yield return waitForSeconds;
@@ -33,8 +36,8 @@ public class SpawnSelectItem : MonoBehaviour
         float correctXPosition = _spawnArea.transform.localScale.x / 2;
         float correctZPosition = _spawnArea.transform.localScale.z / 2;
 
-        float randomX = Random.Range(-correctXPosition + 5, correctXPosition - 5);
-        float randomZ = Random.Range(-correctZPosition + 5, correctZPosition - 5);
+        float randomX = Random.Range(-correctXPosition, correctXPosition);
+        float randomZ = Random.Range(-correctZPosition, correctZPosition);
 
         return new Vector3(randomX, 0, randomZ);
     }
