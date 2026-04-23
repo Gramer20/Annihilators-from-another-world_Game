@@ -25,11 +25,13 @@ public class SpawnEnemy : MonoBehaviour
         {
             GameObject enemy = Instantiate(_enemyPrefab, _spawnArea.position, _spawnArea.rotation);
 
+            enemy.transform.parent = _spawnArea.transform;
+
             _enemyCount++;
 
             yield return wait;
-        }
-
-        
+        }        
     }
+
+    //private void RandomEnemyRotation
 }

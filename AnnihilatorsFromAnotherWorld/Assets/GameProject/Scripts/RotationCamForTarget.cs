@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class RotationCamForTarget : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    private GameObject _target;
+
+    private void Awake()
+    {
+        _target = GameObject.Find("PlayerShip");
+    }
 
     void Update()
     {
-        transform.LookAt(target);
+        transform.LookAt(_target.transform);
     }
 
 }

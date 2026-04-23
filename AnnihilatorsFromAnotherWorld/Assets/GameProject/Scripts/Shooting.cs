@@ -9,6 +9,15 @@ public class Shooting : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float _shootingInterval = 0.25f;
     private float _shootingTime;
 
+    private void Awake()
+    {
+        if (_timer == null)
+        {
+            GameObject timer = GameObject.Find("Timer");
+            _timer = timer.GetComponent<GameTimer>();
+        }
+    }
+
     private void Start()
     {
         _shootingTime = _timer.Sec;

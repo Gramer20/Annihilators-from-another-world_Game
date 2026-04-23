@@ -5,12 +5,17 @@ public class RotationSpaceshipForCam : MonoBehaviour
     [SerializeField] private Rigidbody _shipRigidbody;
     [SerializeField] private ObjectMovement _enemyMovement;
     [SerializeField] private Transform _cam;
-    [SerializeField] private Transform _target;
+    private GameObject _target;
 
     [SerializeField] private int _speedRotation = 2;
 
     [SerializeField] private bool IsDistanceMaintained = true;
     [SerializeField] private int _distance = 20;
+
+    private void Awake()
+    {
+        _target = GameObject.Find("PlayerShip");
+    }
 
     void FixedUpdate()
     {
@@ -23,7 +28,7 @@ public class RotationSpaceshipForCam : MonoBehaviour
 
         if (IsDistanceMaintained)
         {
-            if (Vector3.Distance(transform.position, _target.position) > _distance)
+            if (Vector3.Distance(transform.position, _target.transform.position) > _distance)
             {
                 _enemyMovement.ShipeMoveForward();
             }
