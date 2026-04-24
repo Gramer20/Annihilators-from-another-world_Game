@@ -23,7 +23,7 @@ public class SpawnEnemy : MonoBehaviour
 
         while (_enemyCount < _maxEnemyCount)
         {
-            GameObject enemy = Instantiate(_enemyPrefab, _spawnArea.position, _spawnArea.rotation);
+            GameObject enemy = Instantiate(_enemyPrefab, _spawnArea.position, RandomEnemyRotation());
 
             enemy.transform.parent = _spawnArea.transform;
 
@@ -33,5 +33,10 @@ public class SpawnEnemy : MonoBehaviour
         }        
     }
 
-    //private void RandomEnemyRotation
+    private Quaternion RandomEnemyRotation()
+    {
+        float randomY = Random.Range(-180f, 180f);
+
+        return Quaternion.Euler(0f, randomY, 0f); 
+    }
 }
