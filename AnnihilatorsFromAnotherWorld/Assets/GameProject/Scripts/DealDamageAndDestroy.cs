@@ -13,10 +13,25 @@ public class DealDamageAndDestroy : MonoBehaviour
     {
         if (col.gameObject.TryGetComponent<ObjectDurability>(out var durability))
         {
-            durability.TakeDamage(_damage);
-            _rigidbody.AddExplosionForce(_explosionPower, gameObject.transform.position, _explosionRadius);
+            DealDamage(durability);
         }
 
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.TryGetComponent<ObjectDurability>(out var durability))
+        {
+            DealDamage(durability);
+        }
+
+        Destroy(gameObject);
+    }
+
+    private void DealDamage(ObjectDurability durability)
+    {
+        durability.TakeDamage(_damage);
+        _rigidbody.AddExplosionForce(_explosionPower, gameObject.transform.position, _explosionRadius);
     }
 }
