@@ -13,6 +13,10 @@ public class CameraOrbit : MonoBehaviour
     private Vector2 _inputDeltaPointMove;
     private Vector2 _orbitAngles;
 
+    private Quaternion currentCamRotation;
+    private Vector3 currentCamDirection;
+    private Vector3 currentCamPosition;
+
     private void Awake()
     {
         _orbitAngles = new Vector2(_startVerticalAngle, _startHorizontalAngle);
@@ -20,14 +24,17 @@ public class CameraOrbit : MonoBehaviour
 
     private void LateUpdate()
     {
-        Quaternion rotation = Quaternion.Euler(_orbitAngles.x, _orbitAngles.y, 0f);
+        currentCamRotation = Quaternion.Euler(_orbitAngles.x, _orbitAngles.y, 0f);
 
-        Vector3 direction = rotation * Vector3.forward;
+        currentCamDirection = currentCamRotation * Vector3.forward;
 
-        Vector3 position = _playerTransform.position - direction * _radius;
-
-        transform.position = position;
-        transform.rotation = rotation;  
+        if (_playerTransform != null)
+        {
+            currentCamPosition = _playerTransform.position - currentCamDirection * _radius;
+        }
+        
+        transform.position = currentCamPosition;
+        transform.rotation = currentCamRotation;  
     }
 
     public void OnLook(InputAction.CallbackContext context)
