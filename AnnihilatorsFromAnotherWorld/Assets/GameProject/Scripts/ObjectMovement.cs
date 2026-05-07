@@ -10,12 +10,29 @@ public class ObjectMovement : MonoBehaviour
 
     [SerializeField, Range(0, 100)] private int _maxSpeed = 50;
 
+    [SerializeField] private float _distance = 20f;
+    public float Distance => _distance;
+
+    private GameObject _target;
+
     public float MaxSpeed => _maxSpeed;
     private float _yRotation = 0f;
 
+    private void Awake()
+    {
+        _target = GameObject.Find("PlayerShip");
+    }
+
     public void ShipeMoveForward(float multiplier = 1f, ForceMode mode = ForceMode.Acceleration)
     {
-        ApplyingForce(_thrustEngine * multiplier, transform, mode);
+        if (Vector3.Distance(transform.position, _target.transform.position) > _distance)
+        {
+            ApplyingForce(_thrustEngine * multiplier, transform, mode);
+        }
+        else
+        {
+            _rigidbody.velocity = Vector3.zero;
+        }
     }
 
     public Quaternion ShipRotation(float direction)
