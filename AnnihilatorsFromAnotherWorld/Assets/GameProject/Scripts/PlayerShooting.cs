@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] private EnemyShooting _shooting;
+    [SerializeField] private Shooting _shooting;
     [SerializeField] private PlayerShootingView _shootingText;
 
     [SerializeField] private int _maxShots = 15;

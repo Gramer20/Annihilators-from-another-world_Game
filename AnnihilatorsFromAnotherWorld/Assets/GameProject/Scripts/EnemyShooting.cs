@@ -11,7 +11,7 @@ public class EnemyShooting : MonoBehaviour
     //[SerializeField, Range(0f, 1f)] private float _shootingInterval = 0.25f;
     private float _shootingTime;
 
-    [SerializeField] private WaitForSeconds _wait = new WaitForSeconds(0.25f);
+    [SerializeField] private WaitForSeconds _wait = new WaitForSeconds(5f);
 
     /*private void Awake()
     {
@@ -28,7 +28,7 @@ public class EnemyShooting : MonoBehaviour
         
     }*/
 
-    private void Update()
+    private void Start()
     {
         StartCoroutine(ShootEnemyBullet());
     }
@@ -64,13 +64,16 @@ public class EnemyShooting : MonoBehaviour
 
     private IEnumerator ShootEnemyBullet()
     {
-        foreach (Transform firePoint in _firePoints)
+        while (true) 
         {
-            Vector3 spawnPosition = firePoint.position;
-            Quaternion bulletDirection = firePoint.rotation;
-            Instantiate(_bulletPrefab, spawnPosition, bulletDirection);
-        }
+            foreach (Transform firePoint in _firePoints)
+            {
+                Vector3 spawnPosition = firePoint.position;
+                Quaternion bulletDirection = firePoint.rotation;
+                Instantiate(_bulletPrefab, spawnPosition, bulletDirection);
+            }
 
-        yield return _wait;
+            yield return _wait;
+        }
     }
 }

@@ -250,6 +250,7 @@ MonoBehaviour:
   _thrustEngine: 20
   _rotationSpeed: 120
   _maxSpeed: 80
+  _distance: 0
 --- !u!114 &1024608719221286544
 MonoBehaviour:
   m_ObjectHideFlags: 0
