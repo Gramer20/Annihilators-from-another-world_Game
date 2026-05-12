@@ -5,10 +5,18 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     [SerializeField] private Transform _spawnArea;
-    [SerializeField] private GameObject _enemyPrefab;
-    [SerializeField] private int _maxEnemyCount = 3;
 
-    private List<GameObject> EnemyCountList = new List<GameObject>();
+    [SerializeField] private GameObject _shortEnemyPrefab;
+    [SerializeField] private GameObject _longEnemyPrefab;
+    [SerializeField] private GameObject _bossEnemyPrefab;
+
+    [SerializeField] private int _maxShortEnemyCount = 10;
+    [SerializeField] private int _maxLongEnemyCount = 5;
+    [SerializeField] private int _maxBossEnemyCount = 1;
+
+    private List<GameObject> ShortEnemyCountList = new List<GameObject>();
+    private List<GameObject> LongEnemyCountList = new List<GameObject>();
+    private List<GameObject> BossEnemyCountList = new List<GameObject>();
 
     private WaitForSeconds wait = new WaitForSeconds(1f);
     private WaitForSeconds wait_2 = new WaitForSeconds(3f);
@@ -23,20 +31,32 @@ public class SpawnEnemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RemoveEnemy(); 
+        RemoveEnemy(ShortEnemyCountList); 
     }
 
     private IEnumerator Spawn()
     {
         while (IsSpawning)
         {
-            while (EnemyCountList.Count < _maxEnemyCount)
+            while (ShortEnemyCountList.Count < _maxShortEnemyCount || LongEnemyCountList.Count < _maxLongEnemyCount)
             {
-                GameObject enemy = Instantiate(_enemyPrefab, _spawnArea.position, RandomEnemyRotation());
+                if (ShortEnemyCountList.Count < _maxShortEnemyCount)
+                {
+                    GameObject enemy = Instantiate(_shortEnemyPrefab, _spawnArea.position, RandomEnemyRotation());
 
-                enemy.transform.parent = _spawnArea.transform;
+                    enemy.transform.parent = _spawnArea.transform;
 
-                AddEnemy(enemy);
+                    AddEnemy(ShortEnemyCountList, enemy);
+                }
+
+                if (LongEnemyCountList.Count < _maxLongEnemyCount)
+                {
+                    GameObject enemy = Instantiate(_longEnemyPrefab, _spawnArea.position, RandomEnemyRotation());
+
+                    enemy.transform.parent = _spawnArea.transform;
+
+                    AddEnemy(LongEnemyCountList, enemy);
+                }
 
                 yield return wait;
             }
@@ -44,14 +64,14 @@ public class SpawnEnemy : MonoBehaviour
         }
     }
 
-    private void AddEnemy(GameObject enemy)
+    private void AddEnemy(List<GameObject> enemyList ,GameObject enemy)
     {
-        EnemyCountList.Add(enemy);
+        enemyList.Add(enemy);
     }
 
-    private void RemoveEnemy()
+    private void RemoveEnemy(List<GameObject> enemyList)
     {
-        EnemyCountList.RemoveAll(enemy => enemy == null);
+        enemyList.RemoveAll(enemy => enemy == null);
     }
 
     private Quaternion RandomEnemyRotation()
