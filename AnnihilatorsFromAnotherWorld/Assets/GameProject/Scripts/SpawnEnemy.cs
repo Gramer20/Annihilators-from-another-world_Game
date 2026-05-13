@@ -12,11 +12,9 @@ public class SpawnEnemy : MonoBehaviour
 
     [SerializeField] private int _maxShortEnemyCount = 10;
     [SerializeField] private int _maxLongEnemyCount = 5;
-    [SerializeField] private int _maxBossEnemyCount = 1;
 
     private List<GameObject> ShortEnemyCountList = new List<GameObject>();
     private List<GameObject> LongEnemyCountList = new List<GameObject>();
-    private List<GameObject> BossEnemyCountList = new List<GameObject>();
 
     private WaitForSeconds wait = new WaitForSeconds(1f);
     private WaitForSeconds wait_2 = new WaitForSeconds(3f);
@@ -79,5 +77,38 @@ public class SpawnEnemy : MonoBehaviour
         float randomY = Random.Range(-180f, 180f);
 
         return Quaternion.Euler(0f, randomY, 0f); 
+    }
+
+    public void SpawnAtDeath()
+    {
+        GameObject enemy = Instantiate(_bossEnemyPrefab, _spawnArea.position, transform.localRotation);
+
+        enemy.transform.parent = _spawnArea.transform;
+
+        SpawnEnemySpaceship(10, _longEnemyPrefab);
+    }
+
+    private void SpawnEnemySpaceship(int countEnemies, GameObject enemyPrefab)
+    {
+        int count = 0;
+
+        float positionX = _spawnArea.position.x - 3f;
+        float positionZ = _spawnArea.position.z - 10f;
+
+        while (count <= countEnemies)
+        {
+            GameObject enemy = Instantiate(enemyPrefab, new Vector3(positionX, 0f, positionZ), _spawnArea.localRotation);
+            
+            enemy.transform.parent = _spawnArea.transform;
+
+            if (positionZ >= _spawnArea.position.z + 10f)
+            {
+                positionZ = _spawnArea.position.z - 10f;
+                positionX -= 3f;
+            }
+
+            positionZ += 5f;
+            count++;
+        }
     }
 }
