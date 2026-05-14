@@ -21,7 +21,6 @@ public class SpawnEnemy : MonoBehaviour
 
     private bool IsSpawning = true;
 
-
     private void Start()
     {
         StartCoroutine(Spawn());
@@ -81,33 +80,56 @@ public class SpawnEnemy : MonoBehaviour
 
     public void SpawnAtDeath()
     {
-        GameObject enemy = Instantiate(_bossEnemyPrefab, _spawnArea.position, transform.localRotation);
+        GameObject enemy = Instantiate(_bossEnemyPrefab, _spawnArea.position, _spawnArea.localRotation);
 
-        enemy.transform.parent = _spawnArea.transform;
+        enemy.transform.parent = _spawnArea;
 
-        SpawnEnemySpaceship(10, _longEnemyPrefab);
+        SpawnEnemySpaceship(20, _longEnemyPrefab);
     }
 
     private void SpawnEnemySpaceship(int countEnemies, GameObject enemyPrefab)
     {
         int count = 0;
 
-        float positionX = _spawnArea.position.x - 3f;
-        float positionZ = _spawnArea.position.z - 10f;
+
+        float absolutPositionX = Mathf.Abs(_spawnArea.position.x);
+        float signBeforeX = 1;
+
+        if (absolutPositionX != 0)
+            signBeforeX = _spawnArea.position.x / absolutPositionX;
+            
+        Debug.Log("X: " + signBeforeX);
+        float spawnPositionX = absolutPositionX - 20f;
+
+
+        float absolutPositionZ = Mathf.Abs(_spawnArea.position.z);
+        float signBeforeZ = 1;
+
+        if (absolutPositionZ != 0)
+            signBeforeZ = _spawnArea.position.z / absolutPositionZ;
+
+        Debug.Log("Z: " + signBeforeZ);
+        float spawnPositionZ = absolutPositionZ + 10f;
+
 
         while (count <= countEnemies)
         {
-            GameObject enemy = Instantiate(enemyPrefab, new Vector3(positionX, 0f, positionZ), _spawnArea.localRotation);
-            
-            enemy.transform.parent = _spawnArea.transform;
+            Vector3 currentSpawnVector = new Vector3(spawnPositionX * signBeforeX, 0f, spawnPositionZ * signBeforeZ);
 
-            if (positionZ >= _spawnArea.position.z + 10f)
+            GameObject enemy = Instantiate(enemyPrefab, currentSpawnVector, _spawnArea.localRotation);
+
+            enemy.transform.parent = _spawnArea;
+
+            if (spawnPositionX >= absolutPositionX + 20f)
             {
-                positionZ = _spawnArea.position.z - 10f;
-                positionX -= 3f;
+                spawnPositionZ += 5f;
+                spawnPositionX = absolutPositionX - 20f;
+                count++;
+
+                continue;
             }
 
-            positionZ += 5f;
+            spawnPositionX += 10f;
             count++;
         }
     }
