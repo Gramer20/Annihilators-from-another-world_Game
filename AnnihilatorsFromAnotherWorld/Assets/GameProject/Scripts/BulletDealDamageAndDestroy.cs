@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DealDamageAndDestroy : MonoBehaviour
+public class BulletDealDamageAndDestroy : MonoBehaviour
 {
     [SerializeField] private float _damage = 10f;
 

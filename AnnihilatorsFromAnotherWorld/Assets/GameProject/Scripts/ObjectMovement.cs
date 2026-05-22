@@ -11,7 +11,7 @@ public class ObjectMovement : MonoBehaviour
     [SerializeField, Range(0, 100)] private int _maxSpeed = 50;
 
     public float MaxSpeed => _maxSpeed;
-    private float _yRotation = 0f;
+    private float yRotation = 0f;
 
     public void ShipeMoveForward(float multiplier = 1f, ForceMode mode = ForceMode.Acceleration)
     {
@@ -20,9 +20,9 @@ public class ObjectMovement : MonoBehaviour
 
     public Quaternion ShipRotation(float direction)
     {
-        _yRotation += direction * _rotationSpeed * Time.deltaTime;
+        yRotation += direction * _rotationSpeed * Time.deltaTime;
 
-        Quaternion rotate = Quaternion.Euler(0f, _yRotation, 0f);
+        Quaternion rotate = Quaternion.Euler(0f, yRotation, 0f);
 
         return rotate;
     }
