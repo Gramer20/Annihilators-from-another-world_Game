@@ -98,7 +98,6 @@ public class SpawnEnemy : MonoBehaviour
         if (absolutPositionX != 0)
             signBeforeX = _spawnArea.position.x / absolutPositionX;
             
-        Debug.Log("X: " + signBeforeX);
         float spawnPositionX = absolutPositionX - 20f;
 
 
@@ -108,7 +107,6 @@ public class SpawnEnemy : MonoBehaviour
         if (absolutPositionZ != 0)
             signBeforeZ = _spawnArea.position.z / absolutPositionZ;
 
-        Debug.Log("Z: " + signBeforeZ);
         float spawnPositionZ = absolutPositionZ + 10f;
 
 

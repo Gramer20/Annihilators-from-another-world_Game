@@ -7,7 +7,9 @@ public class CameraOrbit : MonoBehaviour
     private const float _startHorizontalAngle = 0f;
 
     [SerializeField] private Transform _playerTransform;
-    [SerializeField, Range(1f, 100f)] private float _radius = 50f;
+    [SerializeField] private PlayerController _playerController;
+    [SerializeField, Range(1f, 100f)] private float _defaultRadius = 50f;
+    [SerializeField, Range(1f, 100f)] private float _accelerationRadius = 70f;
     [SerializeField, Range(1f, 360f)] private float _turnSpeed = 30f;
 
     private Vector2 _inputDeltaPointMove;
@@ -30,11 +32,20 @@ public class CameraOrbit : MonoBehaviour
 
         if (_playerTransform != null)
         {
-            currentCamPosition = _playerTransform.position - currentCamDirection * _radius;
+            if (_playerController.IsAccelerationActived)
+            {
+                currentCamPosition = _playerTransform.position - currentCamDirection * _accelerationRadius;
+                transform.Translate(Vector3.forward * Time.deltaTime, Space.Self);
+            }
+            else
+            {
+                currentCamPosition = _playerTransform.position - currentCamDirection * _defaultRadius;
+            }            
         }
+
         
         transform.position = currentCamPosition;
-        transform.rotation = currentCamRotation;  
+        transform.rotation = currentCamRotation;
     }
 
     public void OnLook(InputAction.CallbackContext context)

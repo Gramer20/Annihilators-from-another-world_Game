@@ -905,7 +905,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _maxDurability: 20
+  _maxDurability: 200
 --- !u!114 &383783497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1565,7 +1565,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _maxDurability: 20
+  _maxDurability: 200
 --- !u!114 &754662478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1948,7 +1948,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 1948936634}
-  _radius: 10
+  _playerController: {fileID: 1948936643}
+  _defaultRadius: 10
+  _accelerationRadius: 12
   _turnSpeed: 25
 --- !u!1 &1020193352
 GameObject:
@@ -3672,7 +3674,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _maxDurability: 20
+  _maxDurability: 200
 --- !u!54 &1664386473
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3700,6 +3702,67 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 2
+--- !u!1001 &1685678328
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2436741748870904077, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: _maxSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040467633900769697, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_Name
+      value: '!_EnemyBossSpaceship'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -18.385546
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.109766
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
 --- !u!1 &1781952579
 GameObject:
   m_ObjectHideFlags: 0
@@ -4337,7 +4400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 1948936640}
   _thrustEngine: 15
-  _rotationSpeed: 80
   _maxSpeed: 55
 --- !u!114 &1948936639
 MonoBehaviour:
@@ -4499,6 +4561,7 @@ MonoBehaviour:
   _objectMovement: {fileID: 1948936638}
   _rigidBody: {fileID: 1948936640}
   _transform: {fileID: 1948936634}
+  _rotationSpeed: 75
   _accelerationMultiplier: 2.5
   _maxAccelerationSpeed: 150
 --- !u!114 &1948936644
@@ -4997,7 +5060,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _maxDurability: 20
+  _maxDurability: 200
 --- !u!114 &2042030300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5249,3 +5312,4 @@ SceneRoots:
   - {fileID: 1104476524}
   - {fileID: 884511426}
   - {fileID: 2047229191}
+  - {fileID: 1685678328}

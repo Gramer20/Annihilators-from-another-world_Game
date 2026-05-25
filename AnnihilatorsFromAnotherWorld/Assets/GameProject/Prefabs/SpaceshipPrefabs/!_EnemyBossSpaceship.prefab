@@ -218,7 +218,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8629120718751113431}
   _thrustEngine: 15
-  _rotationSpeed: 100
   _maxSpeed: 50
 --- !u!114 &4494671871702465772
 MonoBehaviour:
@@ -253,8 +252,8 @@ MonoBehaviour:
   _timer: {fileID: 0}
   _firePoints:
   - {fileID: 5688464492654744700}
-  _bulletPrefab: {fileID: 3454350178298789473, guid: d0053a67b1da5f640a9db91638b7752a, type: 3}
-  _shootingInterval: 0.5
+  _bulletPrefab: {fileID: 3454350178298789473, guid: ddf19735c3a40484a972577a427cfb94, type: 3}
+  _shootingInterval: 0.75
 --- !u!114 &4480419294943906345
 MonoBehaviour:
   m_ObjectHideFlags: 0
