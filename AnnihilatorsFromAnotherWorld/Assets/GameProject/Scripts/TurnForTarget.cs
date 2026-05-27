@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RotationCamForTarget : MonoBehaviour
+public class TurnForTarget : MonoBehaviour
 {
     private GameObject _target;
 

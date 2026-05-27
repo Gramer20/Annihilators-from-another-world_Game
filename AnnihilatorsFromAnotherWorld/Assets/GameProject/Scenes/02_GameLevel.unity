@@ -1949,8 +1949,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 1948936634}
   _playerController: {fileID: 1948936643}
-  _defaultRadius: 10
-  _accelerationRadius: 15
+  _defaultRadius: 9
+  _accelerationRadius: 11
   _turnSpeed: 25
 --- !u!1 &1020193352
 GameObject:
@@ -3714,9 +3714,21 @@ PrefabInstance:
       propertyPath: _maxSpeed
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 2436741748870904077, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: _thrustEngine
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4040467633900769697, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
       propertyPath: m_Name
       value: '!_EnemyBossSpaceship'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4494671871702465772, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: _speedRotation
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8629120718751113431, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
+      propertyPath: m_Constraints
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
       propertyPath: m_LocalPosition.x

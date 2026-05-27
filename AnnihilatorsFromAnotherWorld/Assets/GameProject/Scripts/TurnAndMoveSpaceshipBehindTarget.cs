@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RotationSpaceshipForCam : MonoBehaviour
+public class TurnAndMoveSpaceshipBehindTarget : MonoBehaviour
 {
     [SerializeField] private Rigidbody _shipRigidbody;
     [SerializeField] private ObjectMovement _enemyMovement;

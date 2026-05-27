@@ -9,7 +9,7 @@ public class CameraOrbit : MonoBehaviour
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private PlayerController _playerController;
     [SerializeField, Range(1f, 100f)] private float _defaultRadius = 5f;
-    [SerializeField, Range(1f, 100f)] private float _accelerationRadius = 10f;
+    [SerializeField, Range(1f, 100f)] private float _accelerationRadius = 7f;
     [SerializeField, Range(1f, 360f)] private float _turnSpeed = 30f;
 
     private Vector3 currentAccelerationCamPosition;
@@ -38,12 +38,16 @@ public class CameraOrbit : MonoBehaviour
         {
             if (_playerController.IsAccelerationActived)
             {
-                t += 3f * Time.deltaTime;
+                if(t < 1)
+                    t += 1f * Time.deltaTime;
+
                 currentCamPosition = _playerTransform.position - currentCamDirection * Mathf.Lerp(_defaultRadius, _accelerationRadius, t);
             }
             else
             {
-                currentCamPosition = _playerTransform.position - currentCamDirection * _defaultRadius;
+                if (t > 0)
+                    t -= 1f * Time.deltaTime;
+                currentCamPosition = _playerTransform.position - currentCamDirection * Mathf.Lerp(_defaultRadius, _accelerationRadius, t);
             }            
         }
 
