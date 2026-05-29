@@ -3,17 +3,15 @@ using UnityEngine.InputSystem;
 
 public class CameraOrbit : MonoBehaviour
 {
-    private const float _startVerticalAngle = 35f;
+    private const float _startVerticalAngle = 60f;
     private const float _startHorizontalAngle = 0f;
 
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private PlayerController _playerController;
-    [SerializeField, Range(1f, 100f)] private float _defaultRadius = 5f;
-    [SerializeField, Range(1f, 100f)] private float _accelerationRadius = 7f;
+    [SerializeField, Range(1f, 100f)] private float _defaultRadius = 15f;
+    [SerializeField, Range(1f, 100f)] private float _accelerationRadius = 18f;
     [SerializeField, Range(1f, 360f)] private float _turnSpeed = 30f;
 
-    private Vector3 currentAccelerationCamPosition;
-    private Vector3 currentWithoutAccelerationCamPosition;
     float t = 0;
 
     private Vector2 _inputDeltaPointMove;
