@@ -275,9 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 110673860590518405}
-  _thrustEngine: 15
-  _rotationSpeed: 100
-  _maxSpeed: 60
+  _thrustEngine: 7
+  _maxSpeed: 28
 --- !u!114 &4436498749315896899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +292,7 @@ MonoBehaviour:
   _shipRigidbody: {fileID: 110673860590518405}
   _enemyMovement: {fileID: 855930650375659231}
   _cam: {fileID: 6993455315312348022}
-  _speedRotation: 10
+  _speedRotation: 5
   IsDistanceMaintained: 1
   _distance: 20
 --- !u!114 &6025673403686446787
