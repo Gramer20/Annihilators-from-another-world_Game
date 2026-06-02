@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
@@ -16,7 +17,7 @@ public class SpawnEnemy : MonoBehaviour
     private List<GameObject> ShortEnemyCountList = new List<GameObject>();
     private List<GameObject> LongEnemyCountList = new List<GameObject>();
 
-    private WaitForSeconds wait = new WaitForSeconds(1f);
+    private WaitForSeconds wait = new WaitForSeconds(4f);
     private WaitForSeconds wait_2 = new WaitForSeconds(3f);
 
     private bool IsSpawning = true;
