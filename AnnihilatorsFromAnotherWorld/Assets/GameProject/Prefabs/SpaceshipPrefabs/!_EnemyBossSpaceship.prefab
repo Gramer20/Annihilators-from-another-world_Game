@@ -50,9 +50,10 @@ GameObject:
   - component: {fileID: 5721488123741069266}
   - component: {fileID: 4480419294943906345}
   - component: {fileID: 4473976768214554485}
+  - component: {fileID: 3693835004005268110}
   m_Layer: 7
   m_Name: '!_EnemyBossSpaceship'
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,8 +135,8 @@ Rigidbody:
   m_GameObject: {fileID: 4040467633900769697}
   serializedVersion: 4
   m_Mass: 100
-  m_Drag: 1
-  m_AngularDrag: 2.5
+  m_Drag: 0.75
+  m_AngularDrag: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -204,6 +205,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3693835004005268110}
+        m_TargetAssemblyTypeName: AddingPointsAfterDestroying, Assembly-CSharp
+        m_MethodName: AddPoint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _maxDurability: 100
 --- !u!114 &2436741748870904077
 MonoBehaviour:
@@ -219,8 +232,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _engine: {fileID: 8424057923814422482}
   _rigidbody: {fileID: 8629120718751113431}
-  _thrustEngine: 5
-  _maxSpeed: 20
+  _thrustEngine: 9
+  _maxSpeed: 40
 --- !u!114 &4494671871702465772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +296,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosion: {fileID: 7869904778667063496, guid: 8816198712d2b334b9b9029b235b4b73, type: 3}
+--- !u!114 &3693835004005268110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4040467633900769697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bf027c8e09118444a9d94e03e49acf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scoreCounter: {fileID: 0}
+  _points: 30
 --- !u!1 &6150302790109809975
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ public class SpawnEnemy : MonoBehaviour
     private List<GameObject> ShortEnemyCountList = new List<GameObject>();
     private List<GameObject> LongEnemyCountList = new List<GameObject>();
 
-    private WaitForSeconds wait = new WaitForSeconds(4f);
+    private WaitForSeconds wait = new WaitForSeconds(5f);
     private WaitForSeconds wait_2 = new WaitForSeconds(3f);
 
     private bool IsSpawning = true;
