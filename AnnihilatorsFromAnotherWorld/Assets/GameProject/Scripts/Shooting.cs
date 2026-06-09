@@ -7,7 +7,9 @@ public class Shooting : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
 
     [SerializeField, Range(0f, 1f)] private float _shootingInterval = 0.25f;
+
     private float _shootingTime;
+    private float _currentShootingTime;
 
     private void Awake()
     {
@@ -22,25 +24,14 @@ public class Shooting : MonoBehaviour
     {
         _shootingTime = _timer.Sec;
     }
-
+     
     public void ShootBullet()
     {
-        if (_shootingTime + _shootingInterval > 60)
-        {
-            float currentShootingTime = (_shootingTime + _shootingInterval) - 60;
+        _currentShootingTime = Mathf.Repeat(_shootingTime + _shootingInterval, 60);
 
-            if(currentShootingTime < _timer.Sec)
-            {
-                foreach (Transform firePoint in _firePoints)
-                {
-                    Vector3 spawnPosition = firePoint.position;
-                    Quaternion bulletDirection = firePoint.rotation;
-                    Instantiate(_bulletPrefab, spawnPosition, bulletDirection);
-                }
-                _shootingTime = _timer.Sec;
-            }
-        }
-        else if (_shootingTime + _shootingInterval < _timer.Sec)
+        Debug.Log(">>" + _currentShootingTime + " || " + "->" + _timer.Sec);
+
+        if (_currentShootingTime <= _timer.Sec)
         {
             foreach (Transform firePoint in _firePoints)
             {
@@ -48,7 +39,7 @@ public class Shooting : MonoBehaviour
                 Quaternion bulletDirection = firePoint.rotation;
                 Instantiate(_bulletPrefab, spawnPosition, bulletDirection);
             }
-            _shootingTime = _timer.Sec;
+            _shootingTime = _timer.Sec;  
         }
     }
 }

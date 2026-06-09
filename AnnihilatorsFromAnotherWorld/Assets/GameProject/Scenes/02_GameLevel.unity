@@ -1014,6 +1014,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1937253430821977911, guid: 5db8fe14fbc10dc46b8b50a48aa13907, type: 3}
+      propertyPath: _onDurabilityChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1256355201}
     - target: {fileID: 2178218466509333871, guid: 5db8fe14fbc10dc46b8b50a48aa13907, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1034,6 +1038,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 7612347561427439259, guid: 5db8fe14fbc10dc46b8b50a48aa13907, type: 3}
+      propertyPath: _spawnArea
+      value: 
+      objectReference: {fileID: 1104476524}
     - target: {fileID: 9174440632130784100, guid: 5db8fe14fbc10dc46b8b50a48aa13907, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -6534,6 +6542,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1937253430821977911, guid: 5db8fe14fbc10dc46b8b50a48aa13907, type: 3}
+      propertyPath: _onDurabilityChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1657843106}
     - target: {fileID: 2178218466509333871, guid: 5db8fe14fbc10dc46b8b50a48aa13907, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -6554,6 +6566,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 7612347561427439259, guid: 5db8fe14fbc10dc46b8b50a48aa13907, type: 3}
+      propertyPath: _spawnArea
+      value: 
+      objectReference: {fileID: 2047229191}
     - target: {fileID: 9174440632130784100, guid: 5db8fe14fbc10dc46b8b50a48aa13907, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
@@ -6769,19 +6785,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _onDestroy.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: _onDurabilityChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 531448761}
     - target: {fileID: 5206640932993371702, guid: 5db8fe14fbc10dc46b8b50a48aa13907, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-    - target: {fileID: 0}
+    - target: {fileID: 7612347561427439259, guid: 5db8fe14fbc10dc46b8b50a48aa13907, type: 3}
       propertyPath: _spawnArea
       value: 
       objectReference: {fileID: 450882877}
