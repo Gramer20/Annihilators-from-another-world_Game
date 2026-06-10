@@ -26,7 +26,7 @@ public class TurnAndMoveSpaceshipBehindTarget : MonoBehaviour
     {
         transform.rotation = Quaternion.Slerp(transform.rotation, _cam.rotation, _speedRotation * Time.deltaTime);
 
-        if (IsDistanceMaintained)
+        if (IsDistanceMaintained && _target != null)
         {
             if (Vector3.Distance(transform.position, _target.transform.position) > _distance)
             {

@@ -5226,79 +5226,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 2
---- !u!1001 &1685678328
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2436741748870904077, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: _maxSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2436741748870904077, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: _thrustEngine
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4040467633900769697, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_Name
-      value: '!_EnemyBossSpaceship'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4494671871702465772, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: _speedRotation
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8629120718751113431, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_Constraints
-      value: 84
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -18.385546
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -13.109766
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8830015096904164828, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
 --- !u!1 &1781952579
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,7 +5848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shooting: {fileID: 1948936647}
   _shootingText: {fileID: 1522322287}
-  _maxShots: 150
+  _maxShots: 50
 --- !u!114 &1948936638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6113,7 +6040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adb71ad47860b44c8000f5d97789bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: {fileID: 857584307}
   _firePoints:
   - {fileID: 1571607960}
   - {fileID: 51650604}
@@ -6866,5 +6792,4 @@ SceneRoots:
   - {fileID: 450882877}
   - {fileID: 1104476524}
   - {fileID: 2047229191}
-  - {fileID: 1685678328}
   - {fileID: 600183820}

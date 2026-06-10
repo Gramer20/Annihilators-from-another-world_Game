@@ -5,7 +5,7 @@ public class GameTimer : MonoBehaviour
     [SerializeField] private TimerView _timerView;
 
     private float _minute = 0f;
-    private float _second = 45f;
+    private float _second = 0f;
     private bool _isTimerRunning = false;
 
     public float Min => _minute;

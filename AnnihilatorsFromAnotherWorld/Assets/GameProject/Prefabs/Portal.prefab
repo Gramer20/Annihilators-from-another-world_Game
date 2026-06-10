@@ -154,8 +154,8 @@ MonoBehaviour:
   _shortEnemyPrefab: {fileID: 1067086935783979797, guid: 2b6ac5fae78e7704db8924c38c9d5bb8, type: 3}
   _longEnemyPrefab: {fileID: 3814803659853375802, guid: e07ba56650b1f9c4385a869f3cec564e, type: 3}
   _bossEnemyPrefab: {fileID: 4040467633900769697, guid: 92154c376d562084790e59d3f1366ffe, type: 3}
-  _maxShortEnemyCount: 10
-  _maxLongEnemyCount: 5
+  _maxShortEnemyCount: 1
+  _maxLongEnemyCount: 1
 --- !u!114 &1937253430821977911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _maxDurability: 200
+  _maxDurability: 10
 --- !u!114 &8254253404540662305
 MonoBehaviour:
   m_ObjectHideFlags: 0
