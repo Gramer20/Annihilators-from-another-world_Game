@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private PlayerShipEnergy _playerShipEnergy;
+
     [SerializeField] private ObjectMovement _objectMovement;
 
     [SerializeField] private Rigidbody _rigidBody;
@@ -49,7 +51,7 @@ public class PlayerController : MonoBehaviour
             _objectMovement.ShipeMoveForward();
         }
 
-        if (_direction != Vector2.zero)
+        if (_direction != Vector2.zero && _playerShipEnergy.Energy > 0)
         {
             if (_direction.y > 0 && _rigidBody.velocity.magnitude < _maxAccelerationSpeed)
             {
@@ -73,12 +75,13 @@ public class PlayerController : MonoBehaviour
         if (!_isAccelerationActived)
         {
             _isAccelerationActived = true;
-
             _objectMovement.ShipeMoveForward(_accelerationMultiplier, ForceMode.Impulse);
         }
         else
         {
             _objectMovement.ShipeMoveForward(_accelerationMultiplier);
+
+            _playerShipEnergy.SubtractEnergyWithAcceleration();
         }
     }
 }

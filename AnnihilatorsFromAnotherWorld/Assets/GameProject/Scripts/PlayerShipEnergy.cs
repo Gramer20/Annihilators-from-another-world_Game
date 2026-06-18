@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class PlayerShipEnergy : MonoBehaviour
 {
-    [SerializeField] private PlayerController _playerController;
+    [SerializeField] private UnityEvent<float, float> _onEnergyChange;
     [SerializeField] private float _maxEnergy = 100f;
     [SerializeField, Range(0f, 5f)] private float _subtractedEnergy = 1f;
     [SerializeField, Range(0f, 5f)] private float _addedEnergy = 1f;
@@ -12,7 +12,6 @@ public class PlayerShipEnergy : MonoBehaviour
     private WaitForSeconds wait = new WaitForSeconds(1f);
     private WaitForSeconds wait2 = new WaitForSeconds(0.5f);
 
-    [SerializeField] private UnityEvent<float, float> _onEnergyChange;
     private float _energy = 0f;
     public float Energy => _energy;
 
@@ -21,21 +20,19 @@ public class PlayerShipEnergy : MonoBehaviour
         _energy = _maxEnergy;
     }
 
-    void FixedUpdate()
+    public void SubtractEnergyWithAcceleration()
     {
-        if (_playerController != null && _playerController.IsAccelerationActived)
-        {
-            StartCoroutine(SubtractEnergy());
-        }
-        else if (_playerController != null && !_playerController.IsAccelerationActived)
-        { 
-            StartCoroutine(AddEnergy());
-        }
+        StartCoroutine(SubtractEnergy());
+    }
+
+    public void AddEnergyWithoutAcceleration()
+    {
+        StartCoroutine(AddEnergy());
     }
 
     private IEnumerator SubtractEnergy()
     {
-        ChangeEnergy(-1 * _subtractedEnergy);
+        ChangeEnergy(_subtractedEnergy * -1);
 
         yield return wait;
     }
