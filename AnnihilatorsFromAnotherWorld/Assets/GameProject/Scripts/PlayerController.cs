@@ -56,7 +56,14 @@ public class PlayerController : MonoBehaviour
             if (_direction.y > 0 && _rigidBody.velocity.magnitude < _maxAccelerationSpeed)
             {
                 AccelerationSpaceship();
+
+                _playerShipEnergy.SubtractEnergyWithAcceleration();
             }
+        }
+
+        if (_direction.y <= 0)
+        { 
+            _playerShipEnergy.AddEnergyWithoutAcceleration();
         }
     }
 
@@ -72,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void AccelerationSpaceship()
     {
-        if (!_isAccelerationActived)
+        if (!_isAccelerationActived) 
         {
             _isAccelerationActived = true;
             _objectMovement.ShipeMoveForward(_accelerationMultiplier, ForceMode.Impulse);
@@ -80,8 +87,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             _objectMovement.ShipeMoveForward(_accelerationMultiplier);
-
-            _playerShipEnergy.SubtractEnergyWithAcceleration();
         }
     }
 }

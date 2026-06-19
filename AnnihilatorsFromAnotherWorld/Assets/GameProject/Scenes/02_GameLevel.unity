@@ -6490,6 +6490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7817f883a20f76a4bab0e83de65d71a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerShipEnergy: {fileID: 1948936658}
   _objectMovement: {fileID: 1948936638}
   _rigidBody: {fileID: 1948936640}
   _transform: {fileID: 1948936634}
@@ -6601,10 +6602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87394658fc39c6c4cb2f1285203d01cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerController: {fileID: 1948936643}
-  _maxEnergy: 100
-  _subtractedEnergy: 1
-  _addedEnergy: 1
   _onEnergyChange:
     m_PersistentCalls:
       m_Calls:
@@ -6620,6 +6617,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _maxEnergy: 100
+  _subtractedEnergy: 1
+  _addedEnergy: 1
 --- !u!1 &1949644941
 GameObject:
   m_ObjectHideFlags: 0

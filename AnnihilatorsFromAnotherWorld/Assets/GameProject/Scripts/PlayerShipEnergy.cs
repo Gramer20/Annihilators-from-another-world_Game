@@ -30,6 +30,12 @@ public class PlayerShipEnergy : MonoBehaviour
         StartCoroutine(AddEnergy());
     }
 
+    public void StopChangeEnergy()
+    {
+        StopCoroutine(SubtractEnergy());
+        StopCoroutine(AddEnergy());
+    }
+
     private IEnumerator SubtractEnergy()
     {
         ChangeEnergy(_subtractedEnergy * -1);
